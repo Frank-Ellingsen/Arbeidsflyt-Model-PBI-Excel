@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 annotation PBI_QueryOrder = ["dim_kontoplan","fact_bomiljo"]
 

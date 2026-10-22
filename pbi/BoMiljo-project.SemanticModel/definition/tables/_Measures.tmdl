@@ -72,6 +72,34 @@ table _Measures
 		displayFolder: 3. KPI & Status
 		lineageTag: e3a7102b-1122-4a33-88bb-7f8921104a01
 
+	measure 'EOY Regnskap Est.' = SUM(fact_bomiljo_forecast[belop_eoy_regnskap_est])
+		formatString: #,0
+		displayFolder: 4. Helårsprognose (Python)
+		lineageTag: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+
+	measure 'EOY Avvik Est.' = SUM(fact_bomiljo_forecast[belop_eoy_avvik_est])
+		formatString: #,0
+		displayFolder: 4. Helårsprognose (Python)
+		lineageTag: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
+
+	measure %EOY = DIVIDE([EOY Avvik Est.],[Årsbudsjett],0)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 4. Helårsprognose (Python)
+		lineageTag: 46cd3971-751b-4ac0-81c1-6e6bfcbb568a
+
+	measure 'Status EOY Avvik %' =
+			VAR _AvvikProsent = [%EOY]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _AvvikProsent < -0.05, "🔴 Betydelig merforbruk (> 5 %)",
+			        _AvvikProsent < 0.00,  "🟡 Mindre merforbruk (0 % til 5 %)",
+			        _AvvikProsent > 0.00,  "🟢 Mindreforbruk / Besparelse",
+			        "⚪ I balanse"
+			    )
+		displayFolder: 3. KPI & Status
+		lineageTag: 375d8138-64a0-4434-a243-645891bab26b
+
 	column Value
 		lineageTag: af2a7ecb-4274-4428-9581-221a19995b26
 		summarizeBy: none

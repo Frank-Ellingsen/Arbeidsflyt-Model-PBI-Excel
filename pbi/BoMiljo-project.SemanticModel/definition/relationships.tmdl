@@ -7,3 +7,7 @@ relationship AutoDetected_91fcd52d-bf45-4184-a191-801f9d85e182
 	fromColumn: fact_bomiljo.kontonavn
 	toColumn: dim_kontoplan.kontonavn
 
+relationship 3b1eebde-eb12-9c75-bb52-bc3e931a8e88
+	fromColumn: dim_kontoplan.kostra_art_4siffer
+	toColumn: fact_bomiljo_forecast.art_3siffer
+

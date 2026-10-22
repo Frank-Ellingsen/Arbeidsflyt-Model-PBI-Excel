@@ -5,7 +5,7 @@ table dim_kontoplan
 		dataType: int64
 		formatString: 0
 		lineageTag: 1ff80c70-fba1-4012-84a3-88e376ce3aba
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: kontoklasse_id
 
 		annotation SummarizationSetBy = Automatic
@@ -22,7 +22,7 @@ table dim_kontoplan
 		dataType: int64
 		formatString: 0
 		lineageTag: ae0e753d-5098-4477-8d1a-c391ad21c64d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: framsikt_hovedkategori_kode
 
 		annotation SummarizationSetBy = Automatic
@@ -39,7 +39,7 @@ table dim_kontoplan
 		dataType: int64
 		formatString: 0
 		lineageTag: 7470328c-891a-460d-8eb2-5aaa9ba6af99
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: framsikt_hovedgruppe_kode
 
 		annotation SummarizationSetBy = Automatic
@@ -56,7 +56,7 @@ table dim_kontoplan
 		dataType: int64
 		formatString: 0
 		lineageTag: 0a1e171f-9154-4eb8-bc4c-0ae278612bc8
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: kostra_art_3siffer
 
 		annotation SummarizationSetBy = Automatic
@@ -82,7 +82,7 @@ table dim_kontoplan
 		dataType: int64
 		formatString: 0
 		lineageTag: 8f3c6359-bf93-4001-8423-a81d56228513
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: kontokode_6siffer
 
 		annotation SummarizationSetBy = Automatic

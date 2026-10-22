@@ -2,16 +2,50 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "55481ac884efb7b37e84",
   "position": {
-    "x": 562.68121590023384,
-    "y": 365.14419329696028,
+    "x": 64.05474764756201,
+    "y": 82.121471343028219,
     "z": 0,
-    "height": 299.29851909586904,
-    "width": 1123.8659392049883
+    "height": 770.29940119760477,
+    "width": 1809.957228400342
   },
   "visual": {
     "visualType": "pivotTable",
     "query": {
       "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_bomiljo_forecast"
+                    }
+                  },
+                  "Property": "hovedgruppe"
+                }
+              },
+              "queryRef": "fact_bomiljo_forecast.hovedgruppe",
+              "nativeQueryRef": "hovedgruppe",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_bomiljo_forecast"
+                    }
+                  },
+                  "Property": "art_3siffer"
+                }
+              },
+              "queryRef": "fact_bomiljo_forecast.art_3siffer",
+              "nativeQueryRef": "art_3siffer",
+              "active": false
+            }
+          ]
+        },
         "Values": {
           "projections": [
             {
@@ -111,11 +145,103 @@
               },
               "queryRef": "_Measures.Gjenstående Budsjett T3",
               "nativeQueryRef": "Gjenstående Budsjett T3"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "EOY Regnskap Est."
+                }
+              },
+              "queryRef": "_Measures.EOY Regnskap Est.",
+              "nativeQueryRef": "EOY Regnskap Est."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "EOY Avvik Est."
+                }
+              },
+              "queryRef": "_Measures.EOY Avvik Est.",
+              "nativeQueryRef": "EOY Avvik Est."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "%EOY"
+                }
+              },
+              "queryRef": "_Measures.%EOY",
+              "nativeQueryRef": "%EOY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Status EOY Avvik %"
+                }
+              },
+              "queryRef": "_Measures.Status EOY Avvik %",
+              "nativeQueryRef": "Status EOY Avvik %"
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "fact_bomiljo_forecast.hovedgruppe"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_bomiljo_forecast"
+                    }
+                  },
+                  "Property": "hovedgruppe"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "fact_bomiljo_forecast.art_3siffer"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
@@ -217,6 +343,90 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "e04651816b390b2db33d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "EOY Regnskap Est."
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "00e80bdb2bfeed009160",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "EOY Avvik Est."
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca145949cb4b890b8171",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "%EOY"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "feb405ff5aa643cc92c4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Status EOY Avvik %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0624852730e3623117cb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_bomiljo_forecast"
+              }
+            },
+            "Property": "hovedgruppe"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "468a3a86258afff1ea8a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_bomiljo_forecast"
+              }
+            },
+            "Property": "art_3siffer"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

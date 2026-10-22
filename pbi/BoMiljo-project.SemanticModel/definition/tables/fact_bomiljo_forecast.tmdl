@@ -1,0 +1,86 @@
+table fact_bomiljo_forecast
+	lineageTag: 11ca1eb5-e719-44f1-ba2e-b21322484099
+
+	column art_3siffer
+		dataType: string
+		lineageTag: 9ab88946-9d06-44ab-8bc3-d6f2c2fda12e
+		summarizeBy: none
+		sourceColumn: art_3siffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column hovedgruppe
+		dataType: string
+		lineageTag: 8a5fb025-a9b3-41b5-a765-268d2031dcae
+		summarizeBy: none
+		sourceColumn: hovedgruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	column belop_budsjett_ytd
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e83f259-4519-4987-870a-b385ff31f667
+		summarizeBy: none
+		sourceColumn: belop_budsjett_ytd
+
+		annotation SummarizationSetBy = Automatic
+
+	column belop_regnskap_ytd
+		dataType: double
+		lineageTag: 09df87b3-c609-419b-ba35-371ef1047ff9
+		summarizeBy: none
+		sourceColumn: belop_regnskap_ytd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column belop_arsbudsjett
+		dataType: int64
+		formatString: 0
+		lineageTag: b4eea562-3698-4861-995b-ce293fab7848
+		summarizeBy: none
+		sourceColumn: belop_arsbudsjett
+
+		annotation SummarizationSetBy = Automatic
+
+	column mnd_passert
+		dataType: int64
+		formatString: 0
+		lineageTag: e0bd2a8f-1c8a-418f-8617-81ba91319535
+		summarizeBy: none
+		sourceColumn: mnd_passert
+
+		annotation SummarizationSetBy = Automatic
+
+	column belop_eoy_regnskap_est
+		dataType: double
+		lineageTag: 535c828f-69a3-4ba7-b98e-117031a87903
+		summarizeBy: none
+		sourceColumn: belop_eoy_regnskap_est
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column belop_eoy_avvik_est
+		dataType: double
+		lineageTag: 719472d3-0934-4da3-ad16-a5cddc8346cb
+		summarizeBy: none
+		sourceColumn: belop_eoy_avvik_est
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_bomiljo_forecast = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import sqlite3#(lf)import pandas as pd#(lf)#(lf)db_path = r""C:\Users\frank\Desktop\Arbeidsflytmodell for Helse og Mestring\02_Data_Processed\helse_mestring_sqlite.db""#(lf)conn = sqlite3.connect(db_path)#(lf)#(lf)fact_bomiljo = pd.read_sql_query(""SELECT * FROM fact_bomiljo"", conn)#(lf)fact_bomiljo_forecast = pd.read_sql_query(""SELECT * FROM fact_bomiljo_forecast"", conn)#(lf)dim_kontoplan = pd.read_sql_query(""SELECT * FROM dim_kostra_kontoplan_framsikt"", conn)#(lf)#(lf)conn.close()"),
+				    fact_bomiljo_forecast1 = Source{[Name="fact_bomiljo_forecast"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(fact_bomiljo_forecast1,{{"hovedgruppe", type text}, {"belop_budsjett_ytd", Int64.Type}, {"belop_regnskap_ytd", type number}, {"belop_arsbudsjett", Int64.Type}, {"mnd_passert", Int64.Type}, {"belop_eoy_regnskap_est", type number}, {"belop_eoy_avvik_est", type number}})
+				in
+				    #"Changed Type"
+
