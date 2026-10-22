@@ -1,0 +1,223 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "55481ac884efb7b37e84",
+  "position": {
+    "x": 562.68121590023384,
+    "y": 365.14419329696028,
+    "z": 0,
+    "height": 299.29851909586904,
+    "width": 1123.8659392049883
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Budsjett YTD"
+                }
+              },
+              "queryRef": "_Measures.Budsjett YTD",
+              "nativeQueryRef": "Budsjett YTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Regnskap YTD"
+                }
+              },
+              "queryRef": "_Measures.Regnskap YTD",
+              "nativeQueryRef": "Regnskap YTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avvik YTD"
+                }
+              },
+              "queryRef": "_Measures.Avvik YTD",
+              "nativeQueryRef": "Avvik YTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avvik YTD %"
+                }
+              },
+              "queryRef": "_Measures.Avvik YTD %",
+              "nativeQueryRef": "Avvik YTD %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Årsbudsjett"
+                }
+              },
+              "queryRef": "_Measures.Årsbudsjett",
+              "nativeQueryRef": "Årsbudsjett"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Status Avvik %"
+                }
+              },
+              "queryRef": "_Measures.Status Avvik %",
+              "nativeQueryRef": "Status Avvik %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Gjenstående Budsjett T3"
+                }
+              },
+              "queryRef": "_Measures.Gjenstående Budsjett T3",
+              "nativeQueryRef": "Gjenstående Budsjett T3"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "adddc3e338cc6a96e01c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Regnskap YTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bd37fc710631631922f7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Budsjett YTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "231a7671496a80ca895a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avvik YTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fd7a46b67490ea67d97e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Avvik YTD %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "079eccadd197fa7e2cc9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Årsbudsjett"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cfab58dcaa08eb0b8400",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Status Avvik %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f70e3450f3aa985effd9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Gjenstående Budsjett T3"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

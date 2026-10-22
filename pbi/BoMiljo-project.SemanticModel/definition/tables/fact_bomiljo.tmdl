@@ -1,0 +1,217 @@
+table fact_bomiljo
+	lineageTag: e8d8f3ae-dd55-4d98-8eda-bab5ddda6ff3
+
+	column periode
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 92445fd3-5f43-497b-80c1-d1eb497823fd
+		summarizeBy: none
+		sourceColumn: periode
+
+		variation Variation
+			isDefault
+			relationship: 0a72d79b-67aa-467f-8a23-1ff7fb0d4ea3
+			defaultHierarchy: LocalDateTable_391ff37e-2382-457b-806c-4652e809b563.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column maned
+		dataType: string
+		lineageTag: 4cd38cfe-4abf-4a96-a5d7-32dd60060df9
+		summarizeBy: none
+		sourceColumn: maned
+
+		annotation SummarizationSetBy = Automatic
+
+	column maned_nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 41004aac-7eca-478f-bb00-98ef4ed71c13
+		summarizeBy: sum
+		sourceColumn: maned_nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column tertial
+		dataType: string
+		lineageTag: 3e887340-9daa-42b7-9247-d329a1b8d066
+		summarizeBy: none
+		sourceColumn: tertial
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: ffed5e96-3d03-4c88-99e4-1948fcaa5f9b
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column lokasjon
+		dataType: string
+		lineageTag: 8475295a-fc01-4ddc-9479-630034fb113d
+		summarizeBy: none
+		sourceColumn: lokasjon
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostra_funksjon
+		dataType: int64
+		formatString: 0
+		lineageTag: 39761a18-ba58-4e1c-af18-f560d58437da
+		summarizeBy: sum
+		sourceColumn: kostra_funksjon
+
+		annotation SummarizationSetBy = Automatic
+
+	column tjenesteomrade
+		dataType: string
+		lineageTag: 6b0312af-2142-4f55-a325-0978a213c734
+		summarizeBy: none
+		sourceColumn: tjenesteomrade
+
+		annotation SummarizationSetBy = Automatic
+
+	column hovedgruppe
+		dataType: string
+		lineageTag: cbca8566-7d24-4570-9241-7331222240fe
+		summarizeBy: none
+		sourceColumn: hovedgruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	column undergruppe
+		dataType: string
+		lineageTag: caf132d4-68de-478b-9d27-44b47f460045
+		summarizeBy: none
+		sourceColumn: undergruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostra_art
+		dataType: int64
+		formatString: 0
+		lineageTag: e6b21c66-187a-443a-ae6b-86465f1cfac6
+		summarizeBy: sum
+		sourceColumn: kostra_art
+
+		annotation SummarizationSetBy = Automatic
+
+	column kontokode
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b2a159-c66f-4a5f-a298-0d44f4836977
+		summarizeBy: sum
+		sourceColumn: kontokode
+
+		annotation SummarizationSetBy = Automatic
+
+	column kontonavn
+		dataType: string
+		lineageTag: d503e86c-2c45-4dcf-8567-8902be9a9adb
+		summarizeBy: none
+		sourceColumn: kontonavn
+
+		annotation SummarizationSetBy = Automatic
+
+	column budsjett
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e48e804-d744-4f41-b6b6-618915b58e78
+		summarizeBy: sum
+		sourceColumn: budsjett
+
+		annotation SummarizationSetBy = Automatic
+
+	column regnskap
+		dataType: double
+		lineageTag: 2146342f-5427-47a5-a017-72fade90a26d
+		summarizeBy: sum
+		sourceColumn: regnskap
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avvik
+		dataType: double
+		lineageTag: 1f80986e-1771-4b20-a05d-3470a1b4c3c1
+		summarizeBy: sum
+		sourceColumn: avvik
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column merforbruk
+		dataType: double
+		lineageTag: a9ccd58f-04ef-49bf-ab30-ba3f7dbdf895
+		summarizeBy: sum
+		sourceColumn: merforbruk
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column art_3siffer
+		dataType: int64
+		formatString: 0
+		lineageTag: b36f874a-2cc8-478f-a5b4-2ab99928e923
+		summarizeBy: sum
+		sourceColumn: art_3siffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column belop_regnskap_ytd
+		dataType: double
+		lineageTag: 7e956784-bb00-497d-884f-7eaf56b2ea4a
+		summarizeBy: sum
+		sourceColumn: belop_regnskap_ytd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column belop_budsjett_ytd
+		dataType: int64
+		formatString: 0
+		lineageTag: 35daae98-11e9-45cb-82ec-b5d6f7067e1f
+		summarizeBy: sum
+		sourceColumn: belop_budsjett_ytd
+
+		annotation SummarizationSetBy = Automatic
+
+	column belop_avvik_ytd
+		dataType: double
+		lineageTag: f0e611b5-7305-4f09-8536-48187c3e7476
+		summarizeBy: sum
+		sourceColumn: belop_avvik_ytd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column belop_regnskap_fjor
+		dataType: int64
+		formatString: 0
+		lineageTag: 97a6f05f-f55d-419b-9d2b-de9d0b303485
+		summarizeBy: sum
+		sourceColumn: belop_regnskap_fjor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_bomiljo = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import sqlite3#(lf)import pandas as pd#(lf)#(lf)db_path = r""C:\Users\frank\Desktop\Arbeidsflytmodell for Helse og Mestring\02_Data_Processed\helse_mestring_sqlite.db""#(lf)conn = sqlite3.connect(db_path)#(lf)#(lf)# Hent vasket faktatabell og kontoplansdimensjonen#(lf)fact_bomiljo = pd.read_sql_query(""SELECT * FROM fact_bomiljo"", conn)#(lf)dim_kontoplan = pd.read_sql_query(""SELECT * FROM dim_kostra_kontoplan_framsikt"", conn)#(lf)#(lf)conn.close()"),
+				    fact_bomiljo1 = Source{[Name="fact_bomiljo"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(fact_bomiljo1,{{"periode", type date}, {"maned", type text}, {"maned_nr", Int64.Type}, {"tertial", type text}, {"status", type text}, {"lokasjon", type text}, {"kostra_funksjon", Int64.Type}, {"tjenesteomrade", type text}, {"hovedgruppe", type text}, {"undergruppe", type text}, {"kostra_art", Int64.Type}, {"kontokode", Int64.Type}, {"kontonavn", type text}, {"budsjett", Int64.Type}, {"regnskap", type number}, {"avvik", type number}, {"merforbruk", type number}, {"art_3siffer", Int64.Type}, {"belop_regnskap_ytd", type number}, {"belop_budsjett_ytd", Int64.Type}, {"belop_avvik_ytd", type number}, {"belop_regnskap_fjor", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

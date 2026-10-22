@@ -1,0 +1,9 @@
+relationship 0a72d79b-67aa-467f-8a23-1ff7fb0d4ea3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_bomiljo.periode
+	toColumn: LocalDateTable_391ff37e-2382-457b-806c-4652e809b563.Date
+
+relationship AutoDetected_91fcd52d-bf45-4184-a191-801f9d85e182
+	fromColumn: fact_bomiljo.kontonavn
+	toColumn: dim_kontoplan.kontonavn
+

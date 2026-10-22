@@ -1,0 +1,88 @@
+table _Measures
+	lineageTag: d79a7d7d-fd03-4fa2-a717-9fba44633bde
+
+	measure 'Regnskap YTD' = SUM(fact_bomiljo[belop_regnskap_ytd])
+		formatString: #,0
+		displayFolder: 1. YTD Målinger
+		lineageTag: ca0977f7-f65b-4f4e-9b13-ca09ee057424
+
+	measure 'Budsjett YTD' = ```
+			VAR _SisteBokforteManed = 
+			    CALCULATE(
+			        MAX(fact_bomiljo[maned_nr]),
+			        fact_bomiljo[status] = "Bokført"
+			    )
+			RETURN
+			    CALCULATE(
+			        SUM(fact_bomiljo[belop_budsjett_ytd]),
+			        fact_bomiljo[maned_nr] <= _SisteBokforteManed
+			    )
+			```
+		formatString: #,0
+		displayFolder: 1. YTD Målinger
+		lineageTag: 2ade9d99-db18-4e4a-bb87-d2c8def6185e
+
+	measure 'Avvik YTD' = [Budsjett YTD] - [Regnskap YTD]
+		formatString: #,0
+		displayFolder: 1. YTD Målinger
+		lineageTag: 99858872-293f-4e19-b996-0b398420f024
+
+	measure 'Avvik YTD %' = DIVIDE([Avvik YTD], [Budsjett YTD], 0)
+		formatString: 0.0%
+		displayFolder: 1. YTD Målinger
+		lineageTag: 686949a2-ad2e-46a8-8f4a-cd6c7e3fe633
+
+	measure Årsbudsjett = SUM(fact_bomiljo[belop_budsjett_ytd])
+		formatString: #,0
+		displayFolder: 2. Helår og Ramme
+		lineageTag: 69fdca30-439b-4911-a5f4-855a46fbceed
+
+	measure 'Status Avvik %' =
+			VAR _AvvikProsent = [Avvik YTD %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _AvvikProsent < -0.05, "🔴 Betydelig merforbruk (> 5 %)",
+			        _AvvikProsent < 0.00,  "🟡 Mindre merforbruk (0 % til 5 %)",
+			        _AvvikProsent > 0.00,  "🟢 Mindreforbruk / Besparelse",
+			        "⚪ I balanse"
+			    )
+		displayFolder: 3. KPI & Status
+		lineageTag: ff5eaf6b-939c-49bb-a397-5c2adaed5f4d
+
+	measure 'Gjenstående Budsjett T3' =
+			CALCULATE(
+			    SUM(fact_bomiljo[belop_budsjett_ytd]),
+			    fact_bomiljo[status] = "Gjenstående budsjett"
+			)
+		formatString: #,0
+		displayFolder: 2. Helår og Ramme
+		lineageTag: 4ddd977b-7377-41db-ba94-b6423eacea39
+
+	measure 'Fargekode Avvik' =
+			VAR _AvvikProsent = [Avvik YTD %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _AvvikProsent < -0.05, "#E60000",
+			        _AvvikProsent < 0.00,  "#FFC000",
+			        _AvvikProsent > 0.00,  "#00B050",
+			        "#808080"
+			    )
+		displayFolder: 3. KPI & Status
+		lineageTag: e3a7102b-1122-4a33-88bb-7f8921104a01
+
+	column Value
+		lineageTag: af2a7ecb-4274-4428-9581-221a19995b26
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = {"ph"}
+
+	annotation PBI_Id = 3eee5899180d40a29014760c5a69f189
+

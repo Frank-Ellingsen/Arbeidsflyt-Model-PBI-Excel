@@ -1,0 +1,134 @@
+table dim_kontoplan
+	lineageTag: e25ef4b0-1634-46c3-8054-7efdb8bd060e
+
+	column kontoklasse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ff80c70-fba1-4012-84a3-88e376ce3aba
+		summarizeBy: none
+		sourceColumn: kontoklasse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column kontoklasse_navn
+		dataType: string
+		lineageTag: c11ecf6c-30c4-4936-ae8f-95a6a489a338
+		summarizeBy: none
+		sourceColumn: kontoklasse_navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column framsikt_hovedkategori_kode
+		dataType: int64
+		formatString: 0
+		lineageTag: ae0e753d-5098-4477-8d1a-c391ad21c64d
+		summarizeBy: none
+		sourceColumn: framsikt_hovedkategori_kode
+
+		annotation SummarizationSetBy = Automatic
+
+	column framsikt_hovedkategori_navn
+		dataType: string
+		lineageTag: d5af8ef2-f2de-4d0d-b69e-2746ba5422e6
+		summarizeBy: none
+		sourceColumn: framsikt_hovedkategori_navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column framsikt_hovedgruppe_kode
+		dataType: int64
+		formatString: 0
+		lineageTag: 7470328c-891a-460d-8eb2-5aaa9ba6af99
+		summarizeBy: none
+		sourceColumn: framsikt_hovedgruppe_kode
+
+		annotation SummarizationSetBy = Automatic
+
+	column framsikt_hovedgruppe_navn
+		dataType: string
+		lineageTag: f8f57747-8225-45d1-803a-88fb31be6182
+		summarizeBy: none
+		sourceColumn: framsikt_hovedgruppe_navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostra_art_3siffer
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a1e171f-9154-4eb8-bc4c-0ae278612bc8
+		summarizeBy: none
+		sourceColumn: kostra_art_3siffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostra_art_navn
+		dataType: string
+		lineageTag: fbd69044-7741-4409-a623-bc47a02844e4
+		summarizeBy: none
+		sourceColumn: kostra_art_navn
+
+		annotation SummarizationSetBy = Automatic
+
+	column kostra_art_4siffer
+		dataType: int64
+		formatString: 0
+		lineageTag: 791bd2ca-3abe-402f-bdb1-9b01a832cce4
+		summarizeBy: none
+		sourceColumn: kostra_art_4siffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column kontokode_6siffer
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f3c6359-bf93-4001-8423-a81d56228513
+		summarizeBy: none
+		sourceColumn: kontokode_6siffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column kontonavn
+		dataType: string
+		lineageTag: d685cf6a-3835-4885-8579-cb1bc3172195
+		summarizeBy: none
+		sourceColumn: kontonavn
+
+		annotation SummarizationSetBy = Automatic
+
+	column konto_nokkel
+		dataType: string
+		lineageTag: 94c7683e-17a5-472f-8e5c-16ca8c9183fc
+		summarizeBy: none
+		sourceColumn: konto_nokkel
+
+		annotation SummarizationSetBy = Automatic
+
+	column beskrivelse_regnskapsregel
+		dataType: string
+		lineageTag: 2a47a920-7ff8-4c7b-9e89-ba14359db275
+		summarizeBy: none
+		sourceColumn: beskrivelse_regnskapsregel
+
+		annotation SummarizationSetBy = Automatic
+
+	column aktiv
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5bbce30a-b710-43e5-880e-81ce8c6dbcf0
+		summarizeBy: none
+		sourceColumn: aktiv
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_kontoplan = m
+		mode: import
+		source =
+				let
+				    Source = Python.Execute("import sqlite3#(lf)import pandas as pd#(lf)#(lf)db_path = r""C:\Users\frank\Desktop\Arbeidsflytmodell for Helse og Mestring\02_Data_Processed\helse_mestring_sqlite.db""#(lf)conn = sqlite3.connect(db_path)#(lf)#(lf)# Hent vasket faktatabell og kontoplansdimensjonen#(lf)fact_bomiljo = pd.read_sql_query(""SELECT * FROM fact_bomiljo"", conn)#(lf)dim_kontoplan = pd.read_sql_query(""SELECT * FROM dim_kostra_kontoplan_framsikt"", conn)#(lf)#(lf)conn.close()"),
+				    dim_kontoplan1 = Source{[Name="dim_kontoplan"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(dim_kontoplan1,{{"kontoklasse_id", Int64.Type}, {"kontoklasse_navn", type text}, {"framsikt_hovedkategori_kode", Int64.Type}, {"framsikt_hovedkategori_navn", type text}, {"framsikt_hovedgruppe_kode", Int64.Type}, {"framsikt_hovedgruppe_navn", type text}, {"kostra_art_3siffer", Int64.Type}, {"kostra_art_navn", type text}, {"kostra_art_4siffer", Int64.Type}, {"kontokode_6siffer", Int64.Type}, {"kontonavn", type text}, {"konto_nokkel", type text}, {"beskrivelse_regnskapsregel", type text}, {"aktiv", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
